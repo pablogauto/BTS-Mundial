@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bts-army-fixture-v3';
+const CACHE_NAME = 'bts-army-fixture-v4';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
