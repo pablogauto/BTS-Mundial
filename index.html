@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>BTS ARMY Fixture Mundial 2026</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Fixture interactivo del Mundial de Fútbol 2026 para la comunidad BTS ARMY. Pronostica resultados y sigue a tus favoritos.">
+  <meta name="author" content="Guadalupe for ARMY">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Mobile & PWA Meta Tags -->
+  <meta name="theme-color" content="#5E27D8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="BTS Fixture">
+  
+  <!-- Favicon & PWA Icons -->
+  <link rel="shortcut icon" href="assets/bts-favicon.png" />
+  <link rel="apple-touch-icon" href="assets/bts-favicon.png" />
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header>
+    <div class="brand">
+      <img src="assets/bts-logo.png" alt="BTS Logo" class="brand-logo-img">
+      <div class="brand-details">
+        <span class="brand-subtitle">by Guadalupe for ARMY</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <!-- Active Simulation Indicator -->
+      <span class="sim-badge" id="simBadge">Simulado</span>
+      <!-- PWA Install Button -->
+      <button class="header-btn" id="installBtn" style="display:none;" title="Instalar Aplicación">
+        <svg viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2zm7-18L5.33 11h4V16h5.33v-5h4L12 2z"/>
+        </svg>
+      </button>
+      <!-- Sync Button -->
+      <button class="header-btn" id="syncBtn" title="Actualizar datos online">
+        <svg viewBox="0 0 24 24">
+          <path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main View Area -->
+  <main>
+    
+    <!-- SECTION 0: INICIO (HOME) -->
+    <section class="tab-panel active" id="panel-inicio">
+      <div class="inicio-hero">
+        <img src="assets/bts-logo.png" alt="BTS Logo" class="inicio-logo">
+        <h1 class="inicio-slogan">by Guadalupe for ARMY</h1>
+      </div>
+
+      <!-- Próximo Partido de Argentina -->
+      <div class="next-match-section">
+        <h2 class="section-title">Próximo Partido de Argentina</h2>
+        <div id="nextMatchArgentinaContainer">
+          <div class="info-card">
+            <div class="info-card-title">Cargando próximo partido...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Banner de Instalación PWA -->
+      <div class="pwa-install-banner hidden" id="pwaHomeBanner">
+        <div class="pwa-install-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+          </svg>
+        </div>
+        <div class="pwa-install-info">
+          <h3 class="pwa-install-title">Instalar Aplicación</h3>
+          <p class="pwa-install-text">Accede al fixture al instante desde tu pantalla de inicio, incluso sin conexión.</p>
+        </div>
+        <button class="action-btn" id="installBtnHome">Instalar en el celu</button>
+      </div>
+
+      <!-- Menú Rápido -->
+      <div class="quick-nav-section">
+        <h2 class="section-title">Menú Rápido</h2>
+        <div class="quick-nav-grid">
+          <div class="quick-nav-card" data-target="fixture">
+            <div class="quick-nav-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/>
+              </svg>
+            </div>
+            <div class="quick-nav-details">
+              <span class="quick-nav-name">Fixture</span>
+              <span class="quick-nav-desc">Partidos y simulación</span>
+            </div>
+          </div>
+          <div class="quick-nav-card" data-target="groups">
+            <div class="quick-nav-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M10 10.02h5V21h-5zM17 21h5V10h-5zm-7-13h12V3H10zm-8 5h5v8H2zm0-5h5V3H2zm0 13h5v3H2z"/>
+              </svg>
+            </div>
+            <div class="quick-nav-details">
+              <span class="quick-nav-name">Grupos</span>
+              <span class="quick-nav-desc">Tablas de posiciones</span>
+            </div>
+          </div>
+          <div class="quick-nav-card" data-target="external-bts">
+            <div class="quick-nav-icon">
+              <img src="assets/bts-favicon.png" alt="BTS Portal" style="width:28px;height:28px;object-fit:contain;">
+            </div>
+            <div class="quick-nav-details">
+              <span class="quick-nav-name">BTS Official</span>
+              <span class="quick-nav-desc">ibighit.com</span>
+            </div>
+          </div>
+          <div class="quick-nav-card" data-target="tracker">
+            <div class="quick-nav-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+            </div>
+            <div class="quick-nav-details">
+              <span class="quick-nav-name">Seguidor</span>
+              <span class="quick-nav-desc">Tus favoritos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: FIXTURE -->
+    <section class="tab-panel" id="panel-fixture">
+      <!-- Search & Filters -->
+      <div class="search-filter-box">
+        <div class="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input type="text" class="search-input" id="searchInput" placeholder="Buscar equipo, sede o grupo...">
+        </div>
+        
+        <!-- Quick access links -->
+        <div class="quick-links" style="margin-top: 10px; margin-bottom: 2px; padding: 0 4px; font-size: 12px; display: flex; gap: 8px; align-items: center;">
+          <span style="color: var(--text-muted)">Filtro rápido:</span>
+          <a href="#" id="link-argentina" style="color: #74ACDF; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; font-weight: 600; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+            🇦🇷 Partidos de Argentina
+          </a>
+        </div>
+        
+        <!-- Filter pills (Matchday 1 to 17, Round of 32, etc.) -->
+        <div class="filter-scroll-container" id="stageFilters">
+          <button class="filter-pill active" data-stage="all">Todos</button>
+          <button class="filter-pill" data-stage="argentina" style="border-color: #74ACDF; color: #74ACDF;">🇦🇷 Argentina</button>
+          <button class="filter-pill" data-stage="groups">Fase de Grupos</button>
+          <button class="filter-pill" data-stage="knockouts">Eliminatorias</button>
+          <button class="filter-pill" data-stage="favorites">Favoritos ★</button>
+        </div>
+      </div>
+
+      <!-- Match Simulation Trigger Box -->
+      <div class="floating-control">
+        <div class="switch-label">
+          <span class="switch-title">Modo Simulación de Resultados</span>
+          <span class="switch-desc">Activa para editar los marcadores y recalcular grupos</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="simModeToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- Matchday Header / Match List -->
+      <div class="match-card-list" id="matchesContainer">
+        <!-- Rendered dynamically by app.js -->
+        <div class="info-card">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          <div class="info-card-title">Cargando Fixture...</div>
+          <div class="info-card-text">Obteniendo la programación del Mundial de Fútbol 2026.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: GROUPS -->
+    <section class="tab-panel" id="panel-groups">
+      <div class="info-card" id="groupsSimulatorNote">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <div class="info-card-title">Simulación Activa</div>
+        <div class="info-card-text">Las posiciones reflejan los marcadores simulados por ti.</div>
+      </div>
+      <div class="groups-grid" id="groupsContainer">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+
+
+    <!-- SECTION 4: MY TRACKER -->
+    <section class="tab-panel" id="panel-tracker">
+      <div class="tracker-box">
+        <h2 class="tracker-title">Mi Seguidor Mundialista</h2>
+        <p class="tracker-subtitle">Elige tus selecciones favoritas para realizar un seguimiento exclusivo de sus partidos, horarios y evolución en su grupo.</p>
+        
+        <div class="team-select-grid" id="teamSelectGrid">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+        <div class="tracker-actions" style="display:flex; gap:10px; margin-top:8px;">
+          <button class="action-btn" id="saveFavoritesBtn">Guardar Selección</button>
+          <button class="action-btn secondary" id="clearFavoritesBtn">Limpiar Todo</button>
+        </div>
+      </div>
+
+      <div class="match-date-group" id="trackerMatchesGroup">
+        <h3 class="match-date-header">Partidos de mis Favoritos</h3>
+        <div class="match-card-list" id="trackerMatchesContainer">
+          <div class="info-card">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <div class="info-card-title">No hay favoritos seleccionados</div>
+            <div class="info-card-text">Ve a la sección superior, selecciona tus equipos y presiona "Guardar Selección".</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-tab="inicio">
+      <!-- Home/Inicio Icon -->
+      <svg viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+      <span>Inicio</span>
+    </button>
+    <button class="nav-item" data-tab="fixture">
+      <!-- Calendar/Fixture Icon -->
+      <svg viewBox="0 0 24 24">
+        <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/>
+      </svg>
+      <span>Fixture</span>
+    </button>
+    <button class="nav-item" data-tab="groups">
+      <!-- Table/Leaderboard Icon -->
+      <svg viewBox="0 0 24 24">
+        <path d="M10 10.02h5V21h-5zM17 21h5V10h-5zm-7-13h12V3H10zm-8 5h5v8H2zm0-5h5V3H2zm0 13h5v3H2z"/>
+      </svg>
+      <span>Grupos</span>
+    </button>
+    <button class="nav-item" data-tab="tracker">
+      <!-- Star/Tracker Icon -->
+      <svg viewBox="0 0 24 24">
+        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+      </svg>
+      <span>Seguidor</span>
+    </button>
+    <a class="nav-item" href="https://ibighit.com/bts/eng/" target="_blank" rel="noopener noreferrer" id="navBTSLink">
+      <img src="assets/bts-favicon.png" alt="BTS Portal" class="nav-los-azules-icon">
+      <span>BTS</span>
+    </a>
+  </nav>
+
+  <!-- Data Script -->
+  <script src="js/data.js"></script>
+  <!-- Logic Script -->
+  <script src="js/app.js"></script>
+</body>
+</html>
