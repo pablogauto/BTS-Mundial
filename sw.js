@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bts-army-fixture-v2';
+const CACHE_NAME = 'bts-army-fixture-v3';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -8,9 +8,9 @@ const ASSETS_TO_CACHE = [
   './js/app.js',
   './assets/icon-192.png',
   './assets/icon-512.png',
-  './assets/bts-logo.png',
+  './assets/bts-logo.jpg',
   './assets/bts-favicon.png',
-  './assets/bts-bg.jpg'
+  './assets/bts-bg.png'
 ];
 
 // Install Event - Pre-cache the app shell
