@@ -10,7 +10,7 @@ const ASSETS_TO_CACHE = [
   './assets/icon-512.png',
   './assets/bts-logo.png',
   './assets/bts-favicon.png',
-  './assets/bts-bg.png'
+  './assets/bts-bg.jpg'
 ];
 
 // Install Event - Pre-cache the app shell

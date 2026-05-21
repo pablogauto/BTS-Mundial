@@ -1146,7 +1146,7 @@ input:checked + .slider:before {
 
 /* Inicio (Home) Section Styles */
 #panel-inicio {
-  background-image: linear-gradient(rgba(16, 5, 38, 0.45), rgba(16, 5, 38, 0.8)), url('../assets/bts-bg.png');
+  background-image: linear-gradient(rgba(16, 5, 38, 0.45), rgba(16, 5, 38, 0.8)), url('../assets/bts-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
