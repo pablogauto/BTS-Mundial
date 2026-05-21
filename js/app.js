@@ -469,7 +469,7 @@ function setupEventListeners() {
     card.addEventListener('click', (e) => {
       const targetTab = e.currentTarget.getAttribute('data-target');
       if (targetTab === 'external-bts') {
-        window.open('https://ibighit.com/bts/eng/', '_blank', 'noopener,noreferrer');
+        window.open('https://open.spotify.com/intl-es/artist/3Nrfpe0tUJi4K4DXYWgMUX', '_blank', 'noopener,noreferrer');
         return;
       }
       const targetBtn = document.querySelector(`.bottom-nav .nav-item[data-tab="${targetTab}"]`);
